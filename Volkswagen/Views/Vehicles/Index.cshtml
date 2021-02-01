@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Volkswagen.Models.Vehicles>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center">Volkswagen</h1>
+
+    <h2 class="text-center">Roodepoort</h2>
+
+    <a class="btn btn-outline-dark float-right" asp-action="Create">Create New</a>
+
+    <h3>Current Stock</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <!--image-->
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.make).ToUpper()
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.model).ToUpper()
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.price).ToUpper()
+                    </th>
+                    <th>
+                        STOCK
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="/images/@Html.DisplayFor(modelItem => item.image)" height=100 width=200 />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.make)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.model)
+                        </td>
+                        <td>
+                            R @Html.DisplayFor(modelItem => item.price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.stockAmount)
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.id">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

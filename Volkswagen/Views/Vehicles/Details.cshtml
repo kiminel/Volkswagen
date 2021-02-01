@@ -1,0 +1,58 @@
+﻿@model Volkswagen.Models.Vehicles 
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">Details</h1>
+
+<div>
+    <h4 class="text-center">@Html.DisplayFor(model => model.make) | @Html.DisplayFor(model => model.model)</h4>
+    <hr />
+    <dl class="row">
+        <dd>
+            <img class="container-fluid" src="/images/@Html.DisplayFor(modelItem => Model.image)" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.make).ToUpper()
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.make)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.model).ToUpper()
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.price).ToUpper()
+        </dt>
+        <dd class="col-sm-10">
+            R @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt class="col-sm-2">
+            STOCK
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.stockAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.features).ToUpper()
+        </dt>
+        <!--Display features in list-->
+        <ol>
+            @foreach (var feature in @ViewBag.features)
+            {
+                <li class="col-sm-10">
+                    @feature
+                </li>
+            }
+        </ol>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@Model.id">Edit</a>
+    <a class="btn btn-outline-dark" asp-action="Index">Back</a>
+    <a class="btn btn-danger float-right" asp-action="Delete" asp-route-id="@Model.id">Delete</a>
+</div>

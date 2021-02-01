@@ -1,0 +1,52 @@
+﻿@model Volkswagen.Models.Vehicles
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Create</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="make">Make</label>
+                <input asp-for="make" class="form-control" />
+                <span asp-validation-for="make" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input asp-for="model" class="form-control" />
+                <span asp-validation-for="model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="features">Features</label>
+                <input asp-for="features" class="form-control" />
+                <span asp-validation-for="features" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="stockAmount">Amount</label>
+                <input asp-for="stockAmount" class="form-control" />
+                <span asp-validation-for="stockAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a  class="btn btn-outline-dark" asp-action="Index">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
